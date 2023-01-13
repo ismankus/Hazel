@@ -1,13 +1,12 @@
 #pragma once
 
-#include <memory.h>
+#include <memory>
 
-#include "Core.h"
-
-#include "spdlog/spdlog.h"
+#include"Core.h"
+#include"spdlog/spdlog.h"
 
 namespace Hazel
-{
+{ 
 	class HAZEL_API Log
 	{
 	public:
@@ -15,8 +14,16 @@ namespace Hazel
 		//~Log();
 		static void Init();
 
-		inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger;  }
-		inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return s_CoreLogger;  }
+		inline static std::shared_ptr<spdlog::logger>& GetCoreLogger()
+		{
+			return s_CoreLogger;
+		}
+
+		inline static std::shared_ptr<spdlog::logger>& GetClientLogger()
+		{
+			return s_ClientLogger;
+		}
+
 	private:
 		static std::shared_ptr<spdlog::logger> s_CoreLogger;
 		static std::shared_ptr<spdlog::logger> s_ClientLogger;
@@ -37,4 +44,7 @@ namespace Hazel
 #define HZ_WARN(...)          ::Hazel::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define HZ_ERROR(...)         ::Hazel::Log::GetClientLogger()->error(__VA_ARGS__)
 #define HZ_FATAL(...)         ::Hazel::Log::GetClientLogger()->fatal(__VA_ARGS__)
+
+// if dist build
+//#define HZ_CORE_INFO
 

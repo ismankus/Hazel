@@ -1,11 +1,12 @@
 #pragma once
 
-#include"Core.h"
+#include "Core.h"
 
-namespace Hazel 
+namespace Hazel
 {
-
 	class HAZEL_API Application
+	//class Application
+	//class __declspec(dllexport) Application
 	{
 	public:
 		Application();
@@ -16,6 +17,5 @@ namespace Hazel
 
 	// To be defined in CLIENT
 	Application* CreateApplication();
-
 }
 

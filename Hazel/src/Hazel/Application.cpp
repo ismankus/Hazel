@@ -2,11 +2,9 @@
 
 namespace Hazel
 {
-
 	Application::Application()
 	{
 	}
-
 
 	Application::~Application()
 	{
@@ -16,5 +14,4 @@ namespace Hazel
 	{
 		while (true);
 	}
-
 }
